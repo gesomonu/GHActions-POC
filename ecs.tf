@@ -9,23 +9,7 @@ terraform {
 provider "aws" {
   region = "us-east-1"  # Specify your AWS region
 }
-# resource "aws_instance" "ec2" {
-#   ami           = "ami-0e53db6fd757e38c7"  # Example AMI, change it to your AMI ID
-#   instance_type = "t2.micro"
-#   # User data script
-#   user_data = <<-EOF
-#               #!/bin/bash
-#               # Install Apache Web Server
-#               yum update -y
-#               yum install -y httpd
-#               systemctl start httpd
-#               systemctl enable httpd
-#               echo "Hello World from $(hostname -f)" > /var/www/html/index.html
-#               EOF
-#   tags = {
-#     Name = "Tf-instance"
-#   }
-# }
+
 resource "aws_ecr_repository" "myapplication" {
   name                 = "myapplication"
   image_tag_mutability = "MUTABLE"
